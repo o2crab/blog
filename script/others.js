@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   let table = document.getElementById('table');
-  let file = '{
+  let file = `{
   "prefectures": [
       { "code": 1, "prefecture": "北海道", "kanji": "足寄", "kana": "あしょろ"},
       { "code": 2, "prefecture": "青森県", "kanji": "艫作崎", "kana": "へなしざき"},
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
       { "code": 45, "prefecture": "宮崎県", "kanji": "可愛岳", "kana": "えのだけ"},
       { "code": 46, "prefecture": "鹿児島県", "kanji": "俣川洲", "kana": "またごし"},
       { "code": 47, "prefecture": "沖縄県", "kanji": "保栄茂", "kana": "びん"}]
-  }';
+  }`;
   $.getJSON(file, function(data) {
     let prefs = data.prefectures;
     $.each(prefs, function(index, pref) {
