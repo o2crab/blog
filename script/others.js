@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   let table = document.getElementById('table');
-  let file = '../kanji.json';
+  let file = 'kanji.json';
   $.getJSON(file, function(data) {
     let prefs = data.prefectures;
     $.each(prefs, function(index, pref) {
