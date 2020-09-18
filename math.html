@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  <title>Math</title>
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <header class="cat-header">
+    <div  class="wrapper" id="home-header-container"><!--idあとで確認-->
+      <div class="header-group">
+        <a href="index.html"><img class="logo" src="img/logo1trimmed.png" alt="LOGO"></a>
+        <h1>数学</h1>
+      </div>
+      <p>左端のロゴをクリックすると、<br>ホームに戻れます。</p>
+    </div>
+  </header>
+
+  <main id="math-main" class="wrapper">
+    <h2>２次元最高！</h2>
+    <div id="math-grid">
+      <div>
+        <p>1. \( 10 e^{0.1x} \sin{3x} \) のMaclaurin近似</p>
+        <video class="math-item" src="mathmovies/macDecayMovie2.mp4" type="video/mp4" controls width=100%>Not working</video>
+      </div>
+      <div>
+        <p>2. \( \sin(\frac{\pi}{2}x) \) の合成</p>
+        <video class="math-item" src="mathmovies/sinsinMovie2.mp4" type="video/mp4" controls width=100%>Not working</video>
+      </div>
+      <div>
+        <p>3. \( e^{\sin{x}} \)の合成</p>
+        <video class="math-item" src="mathmovies/esinesinMovie2.mp4" type="video/mp4" controls width=100%>Not working</video>
+      </div>
+      <div>
+        <p>4. \( \cos(x) \) のTaylor近似(x=5まわり)</p>
+        <video class="math-item" src="mathmovies/taylorCosMovie2.mp4" type="video/mp4" controls width=100%>Not working</video>
+      </div>
+      <div>
+        <p>5. \( x^2 + y^2 = 25 \) は円。じゃあ、 \( x^4 + y^4 = 25 \) は？</p>
+        <img id="mathimg" src="mathimg/circleouter.svg" alt="画像の取得に失敗したでござる">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+  </footer>
+</body>
+</html>

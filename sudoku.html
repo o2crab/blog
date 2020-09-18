@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  <title>Sudoku</title>
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <header class="cat-header">
+    <div  class="wrapper" id="home-header-container"><!--idあとで確認-->
+      <div class="header-group">
+        <a href="index.html"><img class="logo" src="img/logo1trimmed.png" alt="LOGO"></a>
+        <h1>Sudoku</h1>
+      </div>
+      <p>左端のロゴをクリックすると、<br>ホームに戻れます。</p>
+    </div>
+  </header>
+
+  <main id="sudoku-main" class="wrapper">
+    <!-- <h2>インタラクティブなwebアプリを作りたい</h2>
+    <p>例：オセロ(userみんなで作っていく)、しりとり、bot、お絵かき、グラフから数式を当てるゲーム、自動作成、userが知を共有するスペース</p>
+    <h3>課題</h3>
+    <p>セキュリティ、userの制限・特定、操作性UX</p><br> -->
+    <h2 id="message"></h2><br>
+    <h3>青文字をクリック！（ナンプレは解かなくていい。）　目標時間：３分</h3>
+
+    <div id="sudokuall">
+      <div id="sudoku">
+        <div class="sudokublock"><!--1-->
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuC">3C</p></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+        </div>
+        <div class="sudokublock"><!--2-->
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuG">2G</p></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+        </div>
+        <div class="sudokublock"><!--3-->
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuB">B</p></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuH">6H</p></div>
+          <div class="sudokuitem"></div>
+        </div>
+        <div class="sudokublock"><!--4-->
+          <div class="sudokuitem"><p class="sudokuE">7E</p></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuH">6H</p></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuB">B</p></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+        </div>
+        <div class="sudokublock"><!--5-->
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuI">2I</p></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuC">3C</p></div>
+          <div class="sudokuitem"></div>
+        </div>
+        <div class="sudokublock"><!--6-->
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuG">2G</p></div>
+          <div class="sudokuitem"><p class="sudokuF">4F</p></div>
+        </div>
+        <div class="sudokublock"><!--7-->
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuA">5A</p></div>
+          <div class="sudokuitem"></div>
+        </div>
+        <div class="sudokublock"><!--8-->
+          <div class="sudokuitem"><p class="sudokuE">7E</p></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuB">B</p></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+        </div>
+        <div class="sudokublock"><!--9-->
+          <div class="sudokuitem"><p class="sudokuA">5A</p></div>
+          <div class="sudokuitem"><p class="sudokuD">9D</p></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"></div>
+          <div class="sudokuitem"><p class="sudokuC">3C</p></div>
+          <div class="sudokuitem"></div>
+        </div>
+      </div>
+      <div id="display"></div>
+    </div>
+
+    <script src="script/sudoku.js"></script>
+  </main>
+
+  <footer>
+  </footer>
+</body>
+</html>
+
+<!-- <table class="sudokublock">
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \sin{x} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \cos{x} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} (1+\tan^2{x}) dx} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{2}{\sqrt{\pi}}} \sqrt{\frac{4}{\pi}-x^2} dx} \)</td>
+    <td>\( \displaystyle{\int_1^e \log{x} dx} \)</td>
+    <td id="sudoku44" class="sudoku44">1から4までの数字で4X4マス(2X2区切り)のナンプレを作るとき、予め埋めなければいけないマスの個数の最小値</td>
+  </tr>
+  <tr>
+    <td>\( \huge \displaystyle{-e^{i\pi}} \)</td>
+    <td>\( \displaystyle{\lim_{x \to \infty} \frac{\tan^{-1}(x)}{\tanh(x)}} \)</td>
+    <td><img id="sudokuimg1" class="sudokuimg" src="mathimg/ring.svg" alt="error"></td>
+  </tr>
+</table>
+<table class="sudokublock">
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \cos{x} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \cos{x} dx} \)</td>
+    <td class="sudoku44">1から4までの数字で4X4マス(2X2区切り)のナンプレを作るとき、予め埋めなければいけないマスの個数の最小値</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \cos{x} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \cos{x} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \cos{x} dx} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \cos{x} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \cos{x} dx} \)</td>
+    <td><img class="sudokuimg" src="mathimg/ring.svg" alt="error"></td>
+  </tr>
+</table>
+<table class="sudokublock">
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} (1+\tan^2{x}) dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} (1+\tan^2{x}) dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} (1+\tan^2{x}) dx} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} (1+\tan^2{x}) dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} (1+\tan^2{x}) dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} (1+\tan^2{x}) dx} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} (1+\tan^2{x}) dx} \)</td>
+    <td><img class="sudokuimg" src="mathimg/ring.svg" alt="error"></td>
+    <td class="sudoku44">1から4までの数字で4X4マス(2X2区切り)のナンプレを作るとき、予め埋めなければいけないマスの個数の最小値</td>
+  </tr>
+</table>
+<table class="sudokublock">
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{2}{\sqrt{\pi}}} \sqrt{\frac{4}{\pi}-x^2} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{2}{\sqrt{\pi}}} \sqrt{\frac{4}{\pi}-x^2} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{2}{\sqrt{\pi}}} \sqrt{\frac{4}{\pi}-x^2} dx} \)</td>
+  </tr>
+  <tr>
+    <td><img class="sudokuimg" src="mathimg/ring.svg" alt="error"></td>
+    <td>\( \displaystyle{\int_0^{\frac{2}{\sqrt{\pi}}} \sqrt{\frac{4}{\pi}-x^2} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{2}{\sqrt{\pi}}} \sqrt{\frac{4}{\pi}-x^2} dx} \)</td>
+  </tr>
+  <tr>
+    <td class="sudoku44">1から4までの数字で4X4マス(2X2区切り)のナンプレを作るとき、予め埋めなければいけないマスの個数の最小値</td>
+    <td>\( \displaystyle{\int_0^{\frac{2}{\sqrt{\pi}}} \sqrt{\frac{4}{\pi}-x^2} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{2}{\sqrt{\pi}}} \sqrt{\frac{4}{\pi}-x^2} dx} \)</td>
+  </tr>
+</table>
+<table class="sudokublock">
+  <tr>
+    <td>\( \displaystyle{\lim_{x \to \infty} \frac{\tan^{-1}(x)}{\tanh(x)}} \)</td>
+    <td>\( \displaystyle{\lim_{x \to \infty} \frac{\tan^{-1}(x)}{\tanh(x)}} \)</td>
+    <td>\( \displaystyle{\lim_{x \to \infty} \frac{\tan^{-1}(x)}{\tanh(x)}} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\lim_{x \to \infty} \frac{\tan^{-1}(x)}{\tanh(x)}} \)</td>
+    <td>\( \displaystyle{\lim_{x \to \infty} \frac{\tan^{-1}(x)}{\tanh(x)}} \)</td>
+    <td>\( \displaystyle{\lim_{x \to \infty} \frac{\tan^{-1}(x)}{\tanh(x)}} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\lim_{x \to \infty} \frac{\tan^{-1}(x)}{\tanh(x)}} \)</td>
+    <td>\( \displaystyle{\lim_{x \to \infty} \frac{\tan^{-1}(x)}{\tanh(x)}} \)</td>
+    <td>\( \displaystyle{\lim_{x \to \infty} \frac{\tan^{-1}(x)}{\tanh(x)}} \)</td>
+  </tr>
+</table>
+<table class="sudokublock">
+  <tr>
+    <td class="sudoku44">1から4までの数字で4X4マス(2X2区切り)のナンプレを作るとき、予め埋めなければいけないマスの個数の最小値</td>
+    <td>\( \displaystyle{\int_1^e \log{x} dx} \)</td>
+    <td>\( \displaystyle{\int_1^e \log{x} dx} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\int_1^e \log{x} dx} \)</td>
+    <td>\( \displaystyle{\int_1^e \log{x} dx} \)</td>
+    <td>\( \displaystyle{\int_1^e \log{x} dx} \)</td>
+  </tr>
+  <tr>
+    <td><img class="sudokuimg" src="mathimg/ring.svg" alt="error"></td>
+    <td>\( \displaystyle{\int_1^e \log{x} dx} \)</td>
+    <td>\( \displaystyle{\int_1^e \log{x} dx} \)</td>
+  </tr>
+</table>
+<table class="sudokublock">
+  <tr>
+    <td>\( \displaystyle{\sum_{n=1}^{\infty}} \frac{1}{2^n} \)</td>
+    <td><img class="sudokuimg" src="mathimg/ring.svg" alt="error"></td>
+    <td>\( \displaystyle{\sum_{n=1}^{\infty}} \frac{1}{2^n} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\sum_{n=1}^{\infty}} \frac{1}{2^n} \)</td>
+    <td class="sudoku44">1から4までの数字で4X4マス(2X2区切り)のナンプレを作るとき、予め埋めなければいけないマスの個数の最小値</td>
+    <td>\( \displaystyle{\sum_{n=1}^{\infty}} \frac{1}{2^n} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\sum_{n=1}^{\infty}} \frac{1}{2^n} \)</td>
+    <td>\( \displaystyle{\sum_{n=1}^{\infty}} \frac{1}{2^n} \)</td>
+    <td>\( \displaystyle{\sum_{n=1}^{\infty}} \frac{1}{2^n} \)</td>
+  </tr>
+</table>
+<table class="sudokublock">
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \sin{x} dx} \)</td>
+    <td class="sudoku44">1から4までの数字で4X4マス(2X2区切り)のナンプレを作るとき、予め埋めなければいけないマスの個数の最小値</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \sin{x} dx} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \sin{x} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \sin{x} dx} \)</td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \sin{x} dx} \)</td>
+  </tr>
+  <tr>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \sin{x} dx} \)</td>
+    <td><img class="sudokuimg" src="mathimg/ring.svg" alt="error"></td>
+    <td>\( \displaystyle{\int_0^{\frac{\pi}{2}} \sin{x} dx} \)</td>
+  </tr>
+</table>
+<table class="sudokublock">
+  <tr>
+    <td>\( \huge \displaystyle{-e^{i\pi}} \)</td>
+    <td>\( \huge \displaystyle{-e^{i\pi}} \)</td>
+    <td>\( \huge \displaystyle{-e^{i\pi}} \)</td>
+  </tr>
+  <tr>
+    <td>\( \huge \displaystyle{-e^{i\pi}} \)</td>
+    <td><img class="sudokuimg" src="mathimg/ring.svg" alt="error"></td>
+    <td>\( \huge \displaystyle{-e^{i\pi}} \)</td>
+  </tr>
+  <tr>
+    <td>\( \huge \displaystyle{-e^{i\pi}} \)</td>
+    <td class="sudoku44">1から4までの数字で4X4マス(2X2区切り)のナンプレを作るとき、予め埋めなければいけないマスの個数の最小値</td>
+    <td>\( \huge \displaystyle{-e^{i\pi}} \)</td>
+  </tr>
+</table> -->
