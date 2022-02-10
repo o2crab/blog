@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let prefs = data.prefectures;
     $.each(prefs, function(index, pref) {
       let tr = document.createElement('tr');
-      for (let prop of ["kanji", "kana", "prefecture"]) {
+      for (const prop of ["kanji", "kana", "prefecture"]) {
         let td = document.createElement('td');
         let text = document.createTextNode(pref[prop]);
         td.appendChild(text);
