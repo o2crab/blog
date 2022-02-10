@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
       { "code": 46, "prefecture": "鹿児島県", "kanji": "俣川洲", "kana": "またごし"},
       { "code": 47, "prefecture": "沖縄県", "kanji": "保栄茂", "kana": "びん"}]
   }`;
-  $.getJSON(file, function(data) {
+  $.post(file, function(data) {
     let prefs = data.prefectures;
     $.each(prefs, function(index, pref) {
       let tr = document.createElement('tr');
